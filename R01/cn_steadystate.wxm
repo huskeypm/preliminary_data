@@ -1,0 +1,53 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 12.08.0 ] */
+
+/* [wxMaxima: comment start ]
+A- B-C
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eqns: [
+0 = -kpa*A + kma*B, 
+0  = -(kpb + kma)*B  + kpa*A + kmb*C,
+0 = -kmb*C + kpb*B,
+1 = A + B + C];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(eqns,[A,B,C]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+Cexpr:(kpa*kpb)/(kpa*(kpb+kmb)+kma*kmb);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+C_KDa_expr: ratsubst(KDa, kma/kpa,Cexpr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+C_KDb_expr: ratsubst(KDb, kmb/kpb,C_KDa_expr);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+CaM + Pf -> CaMP
+CN + Pf ->  CNP
+CaMT = 1 = CaM + CaMP
+CNT = 1 = CN + CNP
+PT = Pf + CaM + CNP
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eqns: [
+0 = -kfCaM*CaM*Pf + kbCaM*CaMP,
+1 = CaM + CaMP,
+Pt = Pf + CaMP
+];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(eqns,[CaM,CaMP,Pf]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
