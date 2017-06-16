@@ -1,3 +1,7 @@
 P2X4 was segmented by Dylan 
 Revised here to be manifold 
 
+Mesh gen
+gmsh -2 P2X4.geo 
+dolfin-convert P2X4.msh P2X4.xml
+
