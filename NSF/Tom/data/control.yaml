@@ -1,0 +1,6 @@
+%YAML 1.2
+# List of parameter files to run
+
+# Commenting out lines will suppress running those analyses
+---
+- yummy-press.yaml
